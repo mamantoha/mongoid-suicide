@@ -1,0 +1,11 @@
+language: ruby
+
+bundler_args: --without development
+
+rvm:
+  - 2.2
+
+gemfile:
+  - Gemfile
+
+sudo: false
