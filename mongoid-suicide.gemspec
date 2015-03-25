@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["anton.linux@gmail.com"]
   spec.summary       = %q{Hacks to support Mongoid remove field}
   spec.description   = %q{Hacks to support Mongoid remove field. Including associations and validations}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mamantoha/mongoid-suicide"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
