@@ -57,6 +57,12 @@ p.username
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
+## License and Author
+
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+Copyright (c) 2015-2016 by Anton Maminov
+
 [travis_badge]: http://img.shields.io/travis/mamantoha/mongoid-suicide.svg?style=flat
 [travis]: https://travis-ci.org/mamantoha/mongoid-suicide
 
