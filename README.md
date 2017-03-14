@@ -1,4 +1,4 @@
-# Mongoid::Suicide
+![Mongoid::Suicide Logo](https://raw.github.com/mamantoha/mongoid-suicide/master/mongoid-suicide.png)
 
 [![Build Status][travis_badge]][travis]
 [![Gem Version][rubygems_badge]][rubygems]
