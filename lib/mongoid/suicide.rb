@@ -3,11 +3,13 @@
 require 'mongoid'
 require 'mongoid/suicide/version'
 
+# :nodoc:
 module Mongoid
   # This module allows remove fields.
   module Suicide
     extend ActiveSupport::Concern
 
+    # :nodoc:
     module ClassMethods
       # Removes the field from the Document.
       # A getter and setter will be removed.
