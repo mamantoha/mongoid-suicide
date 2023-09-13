@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'mongoid'
-require "mongoid/suicide/version"
+require 'mongoid/suicide/version'
 
 module Mongoid
-
   # This module allows remove fields.
   module Suicide
     extend ActiveSupport::Concern
@@ -19,22 +20,22 @@ module Mongoid
       # @return [ Field ] The removed field
       def remove_field(name)
         name = name.to_s
-        if fields[name]
-          aliased = fields[name].options[:as]
+        return unless fields[name]
 
-          remove_accessors(name, name)
-          remove_accessors(name, aliased) if aliased
-          remove_dirty_methods(name, name)
-          remove_dirty_methods(name, aliased) if aliased
+        aliased = fields[name].options[:as]
 
-          remove_defaults(name)
+        remove_accessors(name, name)
+        remove_accessors(name, aliased) if aliased
+        remove_dirty_methods(name, name)
+        remove_dirty_methods(name, aliased) if aliased
 
-          remove_field_in_descendants(name)
-          remove_validations_for(name)
+        remove_defaults(name)
 
-          aliased_fields.delete(aliased.to_s) if aliased
-          fields.delete(name)
-        end
+        remove_field_in_descendants(name)
+        remove_validations_for(name)
+
+        aliased_fields.delete(aliased.to_s) if aliased
+        fields.delete(name)
       end
 
       # Remove the field accessors.
@@ -60,11 +61,11 @@ module Mongoid
         remove_field_setter(meth)
         remove_field_check(meth)
 
-        if field.options[:localize]
-          remove_translations_getter(meth)
-          remove_translations_setter(meth)
-          localized_fields.delete(name)
-        end
+        return unless field.options[:localize]
+
+        remove_translations_getter(meth)
+        remove_translations_setter(meth)
+        localized_fields.delete(name)
       end
 
       # Removes the dirty change methods.
@@ -81,7 +82,7 @@ module Mongoid
       #
       # @param [ Symbol ] name The attribute name.
       # @param [ String ] meth The name of the accessor.
-      def remove_dirty_methods(name, meth)
+      def remove_dirty_methods(_name, meth)
         remove_dirty_change_accessor(meth)
         remove_dirty_change_check(meth)
         remove_dirty_change_flag(meth)
@@ -108,7 +109,7 @@ module Mongoid
         name = name.to_sym
         a_name = [name]
 
-        _validators.reject!{ |key, _| key == name }
+        _validators.reject! { |key, _| key == name }
         remove_validate_callbacks a_name
       end
 
