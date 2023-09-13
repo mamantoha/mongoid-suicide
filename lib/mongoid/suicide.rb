@@ -22,6 +22,7 @@ module Mongoid
       # @return [ Field ] The removed field
       def remove_field(name)
         name = name.to_s
+
         return unless fields[name]
 
         aliased = fields[name].options[:as]
@@ -126,7 +127,9 @@ module Mongoid
           f = callback.filter
           f.respond_to?(:attributes) && f.attributes == a_name
         end
+
         reset_callbacks(:validate)
+
         chain.each do |callback|
           set_callback 'validate', callback.filter
         end
