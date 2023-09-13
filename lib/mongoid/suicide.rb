@@ -120,12 +120,12 @@ module Mongoid
       # @param [ Array<Symbol> ] a_name The attribute name.
       def remove_validate_callbacks(a_name)
         chain = _validate_callbacks.dup.reject do |callback|
-          f = callback.raw_filter
+          f = callback.filter
           f.respond_to?(:attributes) && f.attributes == a_name
         end
         reset_callbacks(:validate)
         chain.each do |callback|
-          set_callback 'validate', callback.raw_filter
+          set_callback 'validate', callback.filter
         end
       end
 
