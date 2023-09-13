@@ -28,8 +28,8 @@ module Mongoid
 
         remove_accessors(name, name)
         remove_accessors(name, aliased) if aliased
-        remove_dirty_methods(name, name)
-        remove_dirty_methods(name, aliased) if aliased
+        remove_dirty_methods(name)
+        remove_dirty_methods(aliased) if aliased
 
         remove_defaults(name)
 
@@ -84,7 +84,7 @@ module Mongoid
       #
       # @param [ Symbol ] name The attribute name.
       # @param [ String ] meth The name of the accessor.
-      def remove_dirty_methods(_name, meth)
+      def remove_dirty_methods(meth)
         remove_dirty_change_accessor(meth)
         remove_dirty_change_check(meth)
         remove_dirty_change_flag(meth)
