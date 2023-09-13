@@ -6,7 +6,6 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'mongoid'
-gem 'rake'
 
 group :development do
   gem 'rubocop', require: false
