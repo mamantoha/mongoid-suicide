@@ -1,8 +1,7 @@
 ![Mongoid::Suicide Logo](https://raw.github.com/mamantoha/mongoid-suicide/master/mongoid-suicide.png)
 
-[![Build Status][travis_badge]][travis]
-[![Gem Version][rubygems_badge]][rubygems]
-[![Code Climate][codeclimate_badge]][codeclimate]
+[![Ruby](https://github.com/mamantoha/mongoid-suicide/actions/workflows/ruby.yml/badge.svg)](https://github.com/mamantoha/mongoid-suicide/actions/workflows/ruby.yml)
+[![Gem Version](https://badge.fury.io/rb/mongoid-suicide.svg)](https://badge.fury.io/rb/mongoid-suicide)
 
 Provides methods to remove fields from Mongoid models
 
@@ -62,12 +61,3 @@ p.username
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 Copyright (c) 2015-2018 by Anton Maminov
-
-[travis_badge]: http://img.shields.io/travis/mamantoha/mongoid-suicide.svg?style=flat
-[travis]: https://travis-ci.org/mamantoha/mongoid-suicide
-
-[rubygems_badge]: http://img.shields.io/gem/v/mongoid-suicide.svg?style=flat
-[rubygems]: http://rubygems.org/gems/mongoid-suicide
-
-[codeclimate_badge]: http://img.shields.io/codeclimate/github/mamantoha/mongoid-suicide.svg?style=flat
-[codeclimate]: https://codeclimate.com/github/mamantoha/mongoid-suicide
