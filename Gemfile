@@ -9,6 +9,7 @@ gem 'mongoid'
 
 group :development do
   gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
