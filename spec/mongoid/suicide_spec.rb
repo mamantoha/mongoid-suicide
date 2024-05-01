@@ -4,17 +4,14 @@ require 'spec_helper'
 
 describe Mongoid::Suicide do
   describe '#remove_field' do
-    context 'remove accessors' do
+    context 'when remove accessors' do
       before do
         Person.field(:remove_testing, type: String)
+        Person.remove_field(:remove_testing)
       end
 
       let(:person) do
         Person.new
-      end
-
-      before(:each) do
-        Person.remove_field(:remove_testing)
       end
 
       it 'removes field getter' do
@@ -42,21 +39,18 @@ describe Mongoid::Suicide do
       end
 
       it 'removes field from fields' do
-        expect(Person.fields).to_not include('remove_testing')
+        expect(Person.fields).not_to include('remove_testing')
       end
     end
 
-    context 'remove accessors for aliasing field' do
+    context 'when remove accessors for aliasing field' do
       before do
         Person.field(:remove_testing, type: String, as: :rt)
+        Person.remove_field(:remove_testing)
       end
 
       let(:person) do
         Person.new
-      end
-
-      before(:each) do
-        Person.remove_field(:remove_testing)
       end
 
       it 'removes field getter' do
@@ -84,21 +78,18 @@ describe Mongoid::Suicide do
       end
 
       it 'removes field from aliased_fields' do
-        expect(Person.aliased_fields).to_not include('rt')
+        expect(Person.aliased_fields).not_to include('rt')
       end
     end
 
-    context 'remove translations' do
+    context 'when remove translations' do
       before do
         Person.field(:remove_testing, type: String, localize: true)
+        Person.remove_field(:remove_testing)
       end
 
       let(:person) do
         Person.new
-      end
-
-      before(:each) do
-        Person.remove_field(:remove_testing)
       end
 
       it 'removes field translation getter' do
@@ -126,21 +117,18 @@ describe Mongoid::Suicide do
       end
 
       it 'localized_fields should not have removed field' do
-        expect(person.localized_fields).to_not include('remove_testing')
+        expect(person.localized_fields).not_to include('remove_testing')
       end
     end
 
-    context 'remove translations for aliasing field' do
+    context 'when remove translations for aliasing field' do
       before do
         Person.field(:remove_testing, type: String, localize: true, as: :rt)
+        Person.remove_field(:remove_testing)
       end
 
       let(:person) do
         Person.new
-      end
-
-      before(:each) do
-        Person.remove_field(:remove_testing)
       end
 
       it 'removes field translation getter' do
@@ -168,17 +156,14 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove dirty change methods' do
+    context 'when remove dirty change methods' do
       before do
         Person.field(:remove_testing, type: String)
+        Person.remove_field(:remove_testing)
       end
 
       let(:person) do
         Person.new
-      end
-
-      before(:each) do
-        Person.remove_field(:remove_testing)
       end
 
       it 'removes the dirty change accessor' do
@@ -224,17 +209,14 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove dirty change methods for aliasing field' do
+    context 'when remove dirty change methods for aliasing field' do
       before do
         Person.field(:remove_testing, type: String, as: :rt)
+        Person.remove_field(:remove_testing)
       end
 
       let(:person) do
         Person.new
-      end
-
-      before(:each) do
-        Person.remove_field(:remove_testing)
       end
 
       it 'removes the dirty change accessor' do
@@ -280,18 +262,15 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove validators' do
+    context 'when remove validators' do
       before do
         Person.field(:remove_testing, type: String)
         Person.validates(:remove_testing, uniqueness: true)
-      end
-
-      before(:each) do
         Person.remove_field(:remove_testing)
       end
 
       it 'validators should not have removed field' do
-        expect(Person._validators).to_not include(:remove_testing)
+        expect(Person._validators).not_to include(:remove_testing)
       end
     end
   end
