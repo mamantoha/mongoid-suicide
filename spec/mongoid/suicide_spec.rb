@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Mongoid::Suicide do
   describe '#remove_field' do
-    context 'remove accessors' do
+    context 'when remove accessors' do
       before do
         Person.field(:remove_testing, type: String)
         Person.remove_field(:remove_testing)
@@ -43,7 +43,7 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove accessors for aliasing field' do
+    context 'when remove accessors for aliasing field' do
       before do
         Person.field(:remove_testing, type: String, as: :rt)
         Person.remove_field(:remove_testing)
@@ -82,7 +82,7 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove translations' do
+    context 'when remove translations' do
       before do
         Person.field(:remove_testing, type: String, localize: true)
         Person.remove_field(:remove_testing)
@@ -121,7 +121,7 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove translations for aliasing field' do
+    context 'when remove translations for aliasing field' do
       before do
         Person.field(:remove_testing, type: String, localize: true, as: :rt)
         Person.remove_field(:remove_testing)
@@ -156,7 +156,7 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove dirty change methods' do
+    context 'when remove dirty change methods' do
       before do
         Person.field(:remove_testing, type: String)
         Person.remove_field(:remove_testing)
@@ -209,7 +209,7 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove dirty change methods for aliasing field' do
+    context 'when remove dirty change methods for aliasing field' do
       before do
         Person.field(:remove_testing, type: String, as: :rt)
         Person.remove_field(:remove_testing)
@@ -262,7 +262,7 @@ describe Mongoid::Suicide do
       end
     end
 
-    context 'remove validators' do
+    context 'when remove validators' do
       before do
         Person.field(:remove_testing, type: String)
         Person.validates(:remove_testing, uniqueness: true)
