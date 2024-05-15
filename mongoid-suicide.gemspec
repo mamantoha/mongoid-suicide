@@ -19,6 +19,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.required_ruby_version = '>= 2.7.0'
-  spec.add_dependency 'mongoid', '> 4.0', '< 10.0'
+  spec.add_dependency 'mongoid', '> 4.0', '< 11.0'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
