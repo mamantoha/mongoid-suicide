@@ -14,7 +14,7 @@ require 'rspec'
 # Mongoid.logger.level = Logger::DEBUG
 
 # Autoload every model for the test suite that sits in spec/app/models.
-Dir[File.join(MODELS, '*.rb')].sort.each do |file|
+Dir[File.join(MODELS, '*.rb')].each do |file|
   name = File.basename(file, '.rb')
   autoload name.camelize.to_sym, name
 end
