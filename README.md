@@ -60,4 +60,4 @@ p.username
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
-Copyright (c) 2015-2024 by Anton Maminov
+Copyright (c) 2015-2026 by Anton Maminov
